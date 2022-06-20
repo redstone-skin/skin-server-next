@@ -5,6 +5,8 @@ namespace SkinServerNext.Controllers {
 	[ApiController]
 	[Route("[controller]")]
 	public class HelloController : ControllerBase {
+		private readonly string[] Texts = new[] { "Next - RedstoneSkin", "Next Redstone Skin Site.", "OHHHHHH! Next Redstone Skin!" };
+
 		private readonly ILogger<HelloController> _logger;
 
 		public HelloController(ILogger<HelloController> logger) {
@@ -13,7 +15,8 @@ namespace SkinServerNext.Controllers {
 
 		[HttpGet(Name = "GetHello")]
 		public Hello Get() {
-			return new() ;
+			Random random = new();
+			return new() { Text = Texts[random.Next(Texts.Length)] };
 		}
 	}
 }
