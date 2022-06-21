@@ -1,10 +1,10 @@
-using System.Net;
+ï»¿using System.Net;
 using System.Net.Sockets;
 
 namespace API.Models {
 	public struct IP {
 		/// <summary>
-		/// ÉèÖÃ IP µØÖ·
+		/// è®¾ç½® IP åœ°å€
 		/// </summary>
 		public IPAddress? IPAddress {
 			set {
@@ -12,28 +12,28 @@ namespace API.Models {
 			}
 		}
 		/// <summary>
-		/// ´¢´æ IP µØÖ·µÄÖĞ¼ä±äÁ¿
+		/// å‚¨å­˜ IP åœ°å€çš„ä¸­é—´å˜é‡
 		/// </summary>
 		private IPAddress? _address = default;
 
 		/// <summary>
-		/// ¿Õ¹¹Ôìº¯Êı
+		/// ç©ºæ„é€ å‡½æ•°
 		/// </summary>
 		public IP() {}
 
 		/// <summary>
-		/// ³õÊ¼»¯ÖĞ¼ä±äÁ¿µÄ¹¹Ôìº¯Êı
+		/// åˆå§‹åŒ–ä¸­é—´å˜é‡çš„æ„é€ å‡½æ•°
 		/// </summary>
-		/// <param name="address">ÓÃÓÚ³õÊ¼»¯µÄ IP µØÖ·</param>
+		/// <param name="address">ç”¨äºåˆå§‹åŒ–çš„ IP åœ°å€</param>
 		public IP(IPAddress? address) => _address = address;
 
 		/// <summary>
-		/// ¶ÁÈ¡ IP µØÖ·
+		/// è¯»å– IP åœ°å€
 		/// </summary>
 		public string? Address => _address?.ToString();
 
 		/// <summary>
-		/// ¶ÁÈ¡µØÖ·×å
+		/// è¯»å–åœ°å€æ—
 		/// </summary>
 		public string? Family => _address?.AddressFamily switch {
 			AddressFamily.InterNetwork => "IPv4",

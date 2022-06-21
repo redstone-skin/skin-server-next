@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+ï»¿using Microsoft.AspNetCore.Mvc;
 using SkinServerNext.Models;
 
 namespace SkinServerNext.Controllers {
@@ -9,12 +9,12 @@ namespace SkinServerNext.Controllers {
 			"Next - RedstoneSkin",
 			"Next Redstone Skin Site.",
 			"OHHHHHH! Next Redstone Skin!",
-			"ÏÂÒ»Õ¾ - ºìÊ¯Æ¤·ôÕ¾",
+			"ä¸‹ä¸€ç«™ - çº¢çŸ³çš®è‚¤ç«™",
 			"Welcome to Next Redstone Skin Site!",
-			"»¶Ó­¹âÁÙ¡°ÏÂÒ»Õ¾ - ºìÊ¯Æ¤·ôÕ¾¡±£¡",
-			"È«ĞÂµÄºìÊ¯Æ¤·ôÕ¾£¡",
+			"æ¬¢è¿å…‰ä¸´â€œä¸‹ä¸€ç«™ - çº¢çŸ³çš®è‚¤ç«™â€ï¼",
+			"å…¨æ–°çš„çº¢çŸ³çš®è‚¤ç«™ï¼",
 			"API of Redstone Skin",
-			"°¥Ñ½£¬²»ÖªµÀĞ´Ê²Ã´ºÃÄØ¡£"
+			"å“å‘€ï¼Œä¸çŸ¥é“å†™ä»€ä¹ˆå¥½å‘¢ã€‚"
 		};
 
 		private readonly ILogger<HelloController> _logger;

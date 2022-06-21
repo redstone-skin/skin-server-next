@@ -1,4 +1,4 @@
-namespace SkinServerNext.Models {
+﻿namespace SkinServerNext.Models {
 	public struct Hello {
 		public Hello() { }
 		public DateTime Time { get; } = DateTime.Now;
