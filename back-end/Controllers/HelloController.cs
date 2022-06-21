@@ -25,7 +25,7 @@ namespace SkinServerNext.Controllers {
 
 		[HttpGet]
 		public Hello Get() {
-			return new() { Text = Texts[Random.Shared.Next(Texts.Length)] };
+			return new() { Slogan = Texts[Random.Shared.Next(Texts.Length)] };
 		}
 	}
 }
