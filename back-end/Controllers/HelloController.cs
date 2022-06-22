@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SkinServerNext.Models;
+﻿using System.Net.Sockets;
 
 namespace SkinServerNext.Controllers {
 	[ApiController]
@@ -24,7 +23,10 @@ namespace SkinServerNext.Controllers {
 		}
 
 		[HttpGet]
-		public Hello Get() {
+		public Hello Get() { // 打个招呼
+			var connection = HttpContext.Connection;
+			var address = connection.RemoteIpAddress;
+			_logger.LogDebug("Hello! Client {}:{}", address?.AddressFamily == AddressFamily.InterNetworkV6 ? $"[{address}]" : address, connection.RemotePort);
 			return new() { Slogan = Texts[Random.Shared.Next(Texts.Length)] };
 		}
 	}

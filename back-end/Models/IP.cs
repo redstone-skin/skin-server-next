@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 
-namespace API.Models {
+namespace SkinServerNext.Models {
 	public struct IP {
 		/// <summary>
 		/// 设置 IP 地址
