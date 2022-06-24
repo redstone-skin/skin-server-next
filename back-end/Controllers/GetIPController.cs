@@ -1,7 +1,6 @@
-﻿using API.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Net.Sockets;
 
-namespace API.Controllers {
+namespace SkinServerNext.Controllers {
 	[ApiController]
 	[Route("[controller]")]
 	public class GetIPController : ControllerBase {
@@ -12,7 +11,10 @@ namespace API.Controllers {
 		}
 
 		[HttpGet]
-		public IP Get() {
+		public IP Get() { // 获取 IP 地址
+			var connection = HttpContext.Connection;
+			var address = connection.RemoteIpAddress;
+			_logger.LogDebug("GetIP: Client {}:{}", address?.AddressFamily == AddressFamily.InterNetworkV6 ? $"[{address}]" : address, connection.RemotePort);
 			return new(HttpContext.Connection.RemoteIpAddress);
 		}
 	}
