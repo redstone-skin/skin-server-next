@@ -17,16 +17,17 @@ namespace SkinServerNext.Controllers {
 		};
 
 		private readonly ILogger<HelloController> _logger;
+		private readonly IHttpConnectionInfo _connection;
 
-		public HelloController(ILogger<HelloController> logger) {
+		public HelloController(ILogger<HelloController> logger, IHttpConnectionInfo connection) {
 			_logger = logger;
+			_connection = connection;
 		}
 
 		[HttpGet]
 		public Hello Get() { // 打个招呼
-			var connection = HttpContext.Connection;
-			var address = connection.RemoteIpAddress;
-			_logger.LogDebug("Hello! Client {}:{}", address?.AddressFamily == AddressFamily.InterNetworkV6 ? $"[{address}]" : address, connection.RemotePort);
+			var address = _connection.RemoteAddress;
+			_logger.LogDebug("GetIP: Client {}:{}", address?.AddressFamily == AddressFamily.InterNetworkV6 ? $"[{address}]" : address, _connection.RemotePort);
 			return new() { Slogan = Texts[Random.Shared.Next(Texts.Length)] };
 		}
 	}

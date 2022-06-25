@@ -5,17 +5,18 @@ namespace SkinServerNext.Controllers {
 	[Route("[controller]")]
 	public class GetIPController : ControllerBase {
 		private readonly ILogger<GetIPController> _logger;
+		private readonly IHttpConnectionInfo _connection;
 
-		public GetIPController(ILogger<GetIPController> logger) {
+		public GetIPController(ILogger<GetIPController> logger, IHttpConnectionInfo connection) {
 			_logger = logger;
+			_connection = connection;
 		}
 
 		[HttpGet]
 		public IP Get() { // 获取 IP 地址
-			var connection = HttpContext.Connection;
-			var address = connection.RemoteIpAddress;
-			_logger.LogDebug("GetIP: Client {}:{}", address?.AddressFamily == AddressFamily.InterNetworkV6 ? $"[{address}]" : address, connection.RemotePort);
-			return new(HttpContext.Connection.RemoteIpAddress);
+			var address = _connection.RemoteAddress;
+			_logger.LogDebug("GetIP: Client {}:{}", address?.AddressFamily == AddressFamily.InterNetworkV6 ? $"[{address}]" : address, _connection.RemotePort);
+			return new(address);
 		}
 	}
 }
