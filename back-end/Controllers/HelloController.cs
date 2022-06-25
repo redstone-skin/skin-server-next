@@ -25,6 +25,7 @@ namespace SkinServerNext.Controllers {
 		}
 
 		[HttpGet]
+		[ResponseCache(CacheProfileName = "Private1m")] // 客户端缓存1分钟
 		public Hello Get() { // 打个招呼
 			var address = _connection.RemoteAddress;
 			_logger.LogDebug("GetIP: Client {}:{}", address?.AddressFamily == AddressFamily.InterNetworkV6 ? $"[{address}]" : address, _connection.RemotePort);

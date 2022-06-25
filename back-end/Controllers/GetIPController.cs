@@ -13,6 +13,7 @@ namespace SkinServerNext.Controllers {
 		}
 
 		[HttpGet]
+		[ResponseCache(CacheProfileName = "NoCache")]
 		public IP Get() { // 获取 IP 地址
 			var address = _connection.RemoteAddress;
 			_logger.LogDebug("GetIP: Client {}:{}", address?.AddressFamily == AddressFamily.InterNetworkV6 ? $"[{address}]" : address, _connection.RemotePort);
