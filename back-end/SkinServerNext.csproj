@@ -15,4 +15,7 @@
 		<Using Include="SkinServerNext.Models" />
 		<Using Include="SkinServerNext.Services.Interfaces" />
 	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\" />
+	</ItemGroup>
 </Project>
