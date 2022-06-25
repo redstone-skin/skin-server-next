@@ -8,13 +8,13 @@ public class Http304 : IHttp304 {
 	private readonly HttpRequest Request;
 	private readonly HttpResponse Response;
 	private readonly ILogger<Http304> _logger;
-	private readonly IHttpConnectionInfo _connection;
+	private readonly IHttpConnectionInfo _info;
 	private static readonly string _lastModified = File.GetLastWriteTime(System.Reflection.Assembly.GetExecutingAssembly().Location).ToUniversalTime().ToString("R");
 
-	public Http304(IHttpContextAccessor accessor, IHttpConnectionInfo connection, ILogger<Http304> logger) {
+	public Http304(IHttpContextAccessor accessor, IHttpConnectionInfo info, ILogger<Http304> logger) {
 		Request = accessor.HttpContext!.Request;
 		Response = accessor.HttpContext.Response;
-		_connection = connection;
+		_info = info;
 		_logger = logger;
 	}
 
@@ -41,7 +41,7 @@ public class Http304 : IHttp304 {
 	/// <returns>如果有效，则为 <see cref="true"/>；否则为 <see cref="false"/></returns>
 	public bool IsValid(bool withIP = false, string value = "") {
 
-		ReadOnlySpan<char> ip = withIP ? _connection.RemoteAddress?.ToString() ?? "" : "";
+		ReadOnlySpan<char> ip = withIP ? _info.RemoteAddress?.ToString() ?? "" : "";
 
         StringValues clientLastModifiedHeaders = Request.Headers.IfModifiedSince,
 			clientETagHeaders = Request.Headers.IfNoneMatch;
@@ -69,7 +69,7 @@ public class Http304 : IHttp304 {
 		bool isValid = IsValid(withIP, value);
 
 		if (!isValid) { // 若无效
-			ReadOnlySpan<char> ip = withIP ? _connection.RemoteAddress?.ToString() ?? "" : "";
+			ReadOnlySpan<char> ip = withIP ? _info.RemoteAddress?.ToString() ?? "" : "";
 			
 			string charList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()_+{}|:<>?-=[];',./"; // Salt 中可包含的字符列表
 			StringBuilder sb = new();
@@ -93,16 +93,12 @@ public class Http304 : IHttp304 {
 	/// </summary>
 	/// <param name="value">附加字符</param>
 	/// <returns>如果有效，则为 <see cref="true"/>；否则为 <see cref="false"/></returns>
-	public bool IsValid(string value = "") {
-		return IsValid(false, value);
-	}
+	public bool IsValid(string value = "") => IsValid(false, value);
 
 	/// <summary>
 	/// 验证客户端缓存有效性，若有效，则设置 HTTP 304
 	/// </summary>
 	/// <param name="value">附加字符</param>
 	/// <returns>若已设置，则返回 <see cref="true"/>；否则返回 <see cref="false"/> 并向客户端输出相关响应头</returns>
-	public bool TrySet(string value = "") {
-		return TrySet(false, value);
-	}
+	public bool TrySet(string value = "") => TrySet(false, value);
 }
