@@ -7,7 +7,7 @@ public struct IP {
 	/// 设置 IP 地址
 	/// </summary>
 	public IPAddress? IPAddress { set => _address = value; }
-    
+	
 	/// <summary>
 	/// 储存 IP 地址的中间变量
 	/// </summary>
