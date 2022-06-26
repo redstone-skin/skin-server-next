@@ -4,6 +4,8 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Platforms>x64</Platforms>
+		<Version>0.1.0.0</Version>
+		<Copyright>Copyright © 2022 Redstone Skin. All rights reserved.</Copyright>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
