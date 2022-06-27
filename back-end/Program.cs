@@ -1,9 +1,16 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using SkinServerNext.Services;
+using SkinServerNext.Database;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer()
 	.AddHttpContextAccessor()
-	.AddScoped<IHttpConnectionInfo, SkinServerNext.Services.HttpConnectionInfo>()
-	.AddScoped<IHttp304, SkinServerNext.Services.Http304>()
+	.AddScoped<IHttpConnectionInfo, HttpConnectionInfo>()
+	.AddScoped<IHttp304, Http304>()
+	.AddDbContext<UserContext>(options => {
+		options.UseMySQL(builder.Configuration.GetConnectionString("Default"));
+	})
 	.AddSwaggerGen()
 	.AddResponseCaching()
 	.AddControllers(options => {
