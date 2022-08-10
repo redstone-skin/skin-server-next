@@ -1,1 +1,22 @@
 // app global css in SCSS form
+
+body {
+  font: {
+    family: '微软雅黑', 'Microsoft YaHei', 'Roboto', sans-serif;
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: darken(white, 10%);
+  }
+}
+
+pre {
+  display: inline;
+  color: $primary;
+
+  padding: 0 4px;
+}
