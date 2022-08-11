@@ -45,20 +45,23 @@
   </q-page>
 </template>
 
+
+
 <script lang="ts">
+import { preFetch } from 'quasar/wrappers'
 import { useHomeStore } from '../stores/home-store'
 import { slogan } from '../http-api/misc'
 
 export default {
-  preFetch({ store }) {
+  preFetch: preFetch(async ({ store }) => {
     const homeStore = useHomeStore(store)
-    return slogan().then(content => { homeStore.setSplash(content) })
-  }
+    const content = await slogan()
+    homeStore.setSplash(content)
+  })
 }
-
 </script>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref } from 'vue'
 import GuideMod from '../components/GuideMod.vue'
 
