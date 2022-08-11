@@ -1,16 +1,16 @@
 version: '3'
 services:
   web:
-    image: mcskin/mcskin-gateway:test
+    image: mcskin/mcskin-gateway:v0.0.1-alpha
     ports:
       - ${WEB_PORT:-9000}:80
     links:
       - frontend
       - backend
   frontend:
-    image: mcskin/mcskin-frontend:test
+    image: mcskin/mcskin-frontend:v0.0.1-alpha
   backend:
-    image: mcskin/mcskin-backend:test
+    image: mcskin/mcskin-backend:v0.0.1-alpha
     links:
       - mysql
       - redis
