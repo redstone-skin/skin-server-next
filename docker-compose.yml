@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - 9000:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    links:
+      - frontend
+      - backend
+  frontend:
+    build: ./front-end
+  backend:
+    build: ./back-end
+    links:
+      - mysql
+      - redis
+  mysql:
+    image: mysql
+  redis:
+    image: redis

@@ -8,6 +8,7 @@ public class GetIPController : ControllerBase {
 	private readonly IHttpConnectionInfo _info;
 	private readonly IHttp304 _http304;
 
+
 	public GetIPController(ILogger<GetIPController> logger, IHttpConnectionInfo info, IHttp304 http304) {
 		_logger = logger;
 		_info = info;
