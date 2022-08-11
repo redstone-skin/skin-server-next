@@ -1,22 +1,25 @@
 version: '3'
 services:
   web:
-    image: nginx
+    image: mcskin/mcskin-gateway:test
     ports:
-      - 9000:80
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${WEB_PORT:-9000}:80
     links:
       - frontend
       - backend
   frontend:
-    build: ./front-end
+    image: mcskin/mcskin-frontend:test
   backend:
-    build: ./back-end
+    image: mcskin/mcskin-backend:test
     links:
       - mysql
       - redis
   mysql:
-    image: mysql
+    image: mysql:8
+    restart: always
+    volumes:
+      - ./storage/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
   redis:
     image: redis
