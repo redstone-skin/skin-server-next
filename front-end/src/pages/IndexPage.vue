@@ -3,8 +3,10 @@
     <!-- 首页大图 -->
     <div class="home-hero-warpper" :style="{ 'background-image': `url(${background})` }">
       <div class="home-hero">
-        <div>
-          <div class="text-h3">使用皮肤来装扮MC中的角色</div>
+        <div class="title-splash-warpper">
+          <div class="text-h3 title-shadow">使用皮肤来装扮MC中的角色
+          </div>
+          <div class="title-splash">{{ splash }}</div>
           <!--一段简介-->
           <div class="text-subtitle2 q-mt-lg">
             我们提供了数以万计的皮肤，你可以寻找你喜欢的皮肤，并通过皮肤Mod或使用红石账号登陆MC来使用皮肤。
@@ -43,6 +45,19 @@
   </q-page>
 </template>
 
+<script lang="ts">
+import { useHomeStore } from '../stores/home-store'
+import { slogan } from '../http-api/misc'
+
+export default {
+  preFetch({ store }) {
+    const homeStore = useHomeStore(store)
+    return slogan().then(content => { homeStore.setSplash(content) })
+  }
+}
+
+</script>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 import GuideMod from '../components/GuideMod.vue'
@@ -52,11 +67,14 @@ import BackgroundWillNight from '../assets/images/home-bg-1.png'
 import BackgroundNight from '../assets/images/home-bg-2.png'
 import BackgroundWillDay from '../assets/images/home-bg-3.png'
 
+
 const tab = ref('mod')
 
+const homeStore = useHomeStore()
+
+const splash = ref(homeStore.splash)
+
 const background = ref('')
-
-
 // 根据时间变化背景
 const date = new Date()
 const hour = date.getHours()
@@ -71,7 +89,6 @@ if (hour >= 6 && hour < 18) {
 }
 
 
-
 </script>
 <style lang="scss" scoped>
 .home-hero-warpper {
@@ -80,7 +97,6 @@ if (hour >= 6 && hour < 18) {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
 
   .home-hero {
     display: flex;
@@ -92,12 +108,56 @@ if (hour >= 6 && hour < 18) {
     height: 100%;
 
     // 半透明背景
-    background: rgba(0, 0, 0, 0.01);
+    background: rgba(0, 0, 0, 0.1);
 
     color: #fff;
     text-align: center;
+
+    user-select: none;
   }
 
+}
+
+.title-shadow {
+  text-shadow: #000 1px 1px 4px;
+}
+
+@keyframes splash {
+  0% {
+    transform: rotate(30deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(30deg) scale(1.2);
+  }
+
+  100% {
+    transform: rotate(30deg) scale(1);
+  }
+}
+
+.title-splash {
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  transform: rotate(30deg);
+
+  color: yellow;
+  font-size: 28px;
+  font-weight: blod;
+  font-family: 'Minecraft';
+
+  text-shadow: #000 1px 1px 4px;
+
+  // Ani
+  animation-name: splash;
+  animation-duration: .5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+
+  &-warpper {
+    position: relative;
+  }
 }
 
 .quick-intro {
