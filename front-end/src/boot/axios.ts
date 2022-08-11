@@ -18,7 +18,7 @@ if (process.env.SERVER) {
   if (process.env.DEV) {
     baseURL = 'http://127.0.0.1:5000'
   } else {
-    baseURL = 'http://backend:5000'
+    baseURL = 'http://backend:80'
   }
 }
 const api = axios.create({ baseURL: baseURL });
