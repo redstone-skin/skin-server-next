@@ -1,4 +1,5 @@
 # 下一站 - 红石皮肤站
+[![Docker Image CI](https://github.com/redstone-skin/skin-server-next/actions/workflows/ci.yml/badge.svg)](https://github.com/redstone-skin/skin-server-next/actions/workflows/ci.yml)
 
 全新的红石皮肤站！
 
