@@ -4,7 +4,7 @@
             <div>
                 <!--CSL 下载-->
                 <q-select outlined dense v-model="selectedMC" :options="mcVersions" label="MC版本"
-                    style="max-width: 30%;" />
+                    style="max-width: 50%;" />
                 <div class="q-mt-md q-gutter-xs">
                     <q-btn color="secondary" label="Forge 版下载" :disable="!selectedMC" />
                     <q-btn color="accent" label="Fabric 版下载" :disable="!selectedMC" />
@@ -12,6 +12,7 @@
             </div>
             <q-stepper-navigation>
                 <q-btn @click="step = 2" color="primary" label="继续" />
+                <q-btn flat @click="step = 3" color="primary" label="跳过安装引导" class="q-ml-sm" />
             </q-stepper-navigation>
         </q-step>
 
@@ -61,10 +62,13 @@ const downloadExtraList = () => {
         name: 'RedstoneSkin',
         type: 'CustomSkinAPI',
         root: url,
-        '__comment': 'RedstoneSkin Extralist file. Put it into .minecraft/CustomSkinLoader/ExtraList'
+        '__comment': '红石皮肤站 ExtraList 配置文件，请放入 .minecraft/CustomSkinLoader/ExtraList 文件夹中'
     }
 
-    fileDownload(JSON.stringify(extraObj), 'RedstoneSkin.json')
+    // 文件下载多了重名，加一个不容易重名的后缀
+    const fileName = `RedstoneSkin_${(new Date()).getTime()}.json`
+
+    fileDownload(JSON.stringify(extraObj, null, 2), fileName)
 }
 
 

@@ -28,7 +28,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container>
+    <q-page-container class="q-pb-lg">
       <router-view />
     </q-page-container>
 
@@ -84,6 +84,8 @@ const toggleTheme = () => {
 .footer {
   padding: 16px;
   padding-bottom: 4px;
+
+  margin-top: 16px;
 
   .nav-controller {
     margin: 0 auto;

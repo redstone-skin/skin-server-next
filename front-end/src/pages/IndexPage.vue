@@ -1,44 +1,65 @@
 <template>
   <q-page>
-    <!-- 首页大图 -->
+    <!-- 首页横幅 -->
     <div class="home-hero-warpper" :style="{ 'background-image': `url(${background})` }">
       <div class="home-hero">
         <div class="title-splash-warpper">
-          <div class="text-h3 title-shadow">使用皮肤来装扮MC中的角色
+          <div class="text-h4 title-shadow">红石皮肤站
           </div>
           <div class="title-splash">{{ splash }}</div>
           <!--一段简介-->
           <div class="text-subtitle2 q-mt-lg">
-            我们提供了数以万计的皮肤，你可以寻找你喜欢的皮肤，并通过皮肤Mod或使用红石账号登陆MC来使用皮肤。
-          </div>
-          <!--引导按钮-->
-          <div class="q-mt-lg q-flex">
-            <q-btn color="primary" label="开始使用" to="/skin" />
-            <q-btn class="q-ml-sm" color="secondary" outline label="浏览皮肤" to="/skin" />
-            <q-btn class="q-ml-sm" color="accent" label="用户中心" to="/skin" />
+            为 Minecraft 玩家提供一站式游戏辅助服务。
           </div>
         </div>
       </div>
     </div>
-    <!--快速上手:提供常见使用方案教程-->
-    <div class="container">
-      <div class="q-mt-lg">
-        <div class="text-h4 text-center">快速上手</div>
-        <div>
-          <q-tabs v-model="tab" dense align="left" class="text-grey" active-color="primary" indicator-color="primary"
-            narrow-indicator>
-            <q-tab name="mod" label="皮肤MOD" />
-            <q-tab name="yggdrasil" label="外置登陆" />
-          </q-tabs>
-          <q-tab-panels v-model="tab" animated>
-            <q-tab-panel name="mod">
-              <GuideMod></GuideMod>
-            </q-tab-panel>
-            <q-tab-panel name="yggdrasil">
-              <div class="text-h6">Alarms</div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </q-tab-panel>
-          </q-tab-panels>
+    <!--动态内容区-->
+    <div class="container q-mt-lg q-pt-lg">
+      <!-- 分栏布局，左侧是分类 -->
+      <div class="row">
+        <div class="col-md-3 col-sm-4 gt-xs q-pa-lg">
+          <q-card bordered>
+            <q-list class="rounded-borders" separator>
+              <q-item clickable>
+                <q-item-section avatar>
+                  <q-icon name="inbox" />
+                </q-item-section>
+
+                <q-item-section>全部</q-item-section>
+              </q-item>
+
+              <q-item clickable>
+                <q-item-section avatar>
+                  <q-icon name="texture" />
+                </q-item-section>
+
+                <q-item-section>材质</q-item-section>
+              </q-item>
+
+              <q-item clickable>
+                <q-item-section avatar>
+                  <q-icon name="dns" />
+                </q-item-section>
+
+                <q-item-section>服务器</q-item-section>
+              </q-item>
+
+              <q-item clickable>
+                <q-item-section avatar>
+                  <q-icon name="send" />
+                </q-item-section>
+
+                <q-item-section>动态</q-item-section>
+              </q-item>
+            </q-list>
+          </q-card>
+        </div>
+        <div class="col q-pt-lg">
+          <ActNormalCard></ActNormalCard>
+        </div>
+        <div class="col-3 q-pa-lg gt-sm">
+          <LearnMoreCard></LearnMoreCard>
         </div>
       </div>
     </div>
@@ -52,6 +73,7 @@ import { preFetch } from 'quasar/wrappers'
 import { useHomeStore } from '../stores/home-store'
 import { slogan } from '../http-api/misc'
 
+
 export default {
   preFetch: preFetch(async ({ store }) => {
     const homeStore = useHomeStore(store)
@@ -63,7 +85,6 @@ export default {
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import GuideMod from '../components/GuideMod.vue'
 
 import BackgroundDay from '../assets/images/home-bg-0.png'
 import BackgroundWillNight from '../assets/images/home-bg-1.png'
@@ -71,7 +92,9 @@ import BackgroundNight from '../assets/images/home-bg-2.png'
 import BackgroundWillDay from '../assets/images/home-bg-3.png'
 
 
-const tab = ref('mod')
+import LearnMoreCard from '../components/cards/LearnMoreCard.vue'
+import ActNormalCard from 'src/components/cards/ActNormalCard.vue'
+
 
 const homeStore = useHomeStore()
 
@@ -92,23 +115,26 @@ if (hour >= 6 && hour < 18) {
 }
 
 
+
 </script>
 <style lang="scss" scoped>
 .home-hero-warpper {
-  height: 100vh;
+  height: 256px;
   background-image: url(../assets/images/home-bg-3.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  overflow: hidden;
 
   .home-hero {
     display: flex;
 
     justify-content: center;
     align-items: center;
-
     width: 100%;
     height: 100%;
+
 
     // 半透明背景
     background: rgba(0, 0, 0, 0.1);
@@ -146,7 +172,7 @@ if (hour >= 6 && hour < 18) {
   transform: rotate(30deg);
 
   color: yellow;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: blod;
   font-family: 'Minecraft';
 
