@@ -52,6 +52,8 @@
       <div style="font-size: 24px;">Redstone Skin Alpha</div>
       <div style="font-size: 16px;">红石皮肤站早期预览版</div>
     </div>
+
+    <q-ajax-bar position="top" color="primary" size="10px" skip-hijack />
   </q-layout>
 </template>
 
