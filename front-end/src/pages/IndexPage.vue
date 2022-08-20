@@ -1,7 +1,7 @@
 <template>
   <q-page>
-    <div class="container">
-      <!--上面显示一排标签-->
+    <!--上面显示一排标签-->
+    <div style="overflow-x: auto;">
       <div class="tags-container">
         <div class="tag-item" :class="getTagColor(0)">#马赛克</div>
         <div class="tag-item" :class="getTagColor(1)">#高清</div>
@@ -9,7 +9,8 @@
         <div class="tag-item" :class="getTagColor(3)">#二次元</div>
         <div class="tag-item" :class="getTagColor(4)">#妹子</div>
       </div>
-
+    </div>
+    <div class="container">
       <q-tabs no-caps switch-indicator align="left" class="text-pimary" indicator-color="primary">
         <q-tab name="skins" label="皮肤" />
         <q-tab name="dress" label="装扮" />
@@ -28,6 +29,13 @@ import { ref } from 'vue'
 
 import LearnMoreCard from '../components/cards/LearnMoreCard.vue'
 import ActNormalCard from 'src/components/cards/ActNormalCard.vue'
+
+
+import { useMeta } from 'quasar'
+
+useMeta({
+  title: '首页'
+})
 
 const getTagColor = (index: number) => {
   const colors = ['blue', 'green', 'yellow', 'pink', 'purple']
@@ -49,12 +57,10 @@ const getTagColor = (index: number) => {
   .tag-item {
     padding: 8px 32px;
     border-radius: 8px;
-
     margin: 0 8px;
-
     cursor: pointer;
-
     color: white;
+    white-space: nowrap;
 
     &.tag-blue {
       background-color: #5365ff;
@@ -65,7 +71,7 @@ const getTagColor = (index: number) => {
     }
 
     &.tag-yellow {
-      background-color: #c0b020;
+      background-color: #f1dc1d;
     }
 
     &.tag-pink {

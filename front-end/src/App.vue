@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { useQuasar, Cookies } from 'quasar'
+import { useQuasar, Cookies, useMeta } from 'quasar'
 import { useSSRContext, watch } from 'vue'
 
 
@@ -38,5 +38,15 @@ watch(() => $q.dark.isActive, (val) => {
   }
 })
 
+
+const metaData = {
+  titleTemplate: (title: string) => `${title} - 红石皮肤站`,
+  meta: {
+    description: { name: 'description', content: '红石皮肤站为Minecaft提供免费的皮肤托管服务。玩家可以上传，下载以及通过皮肤mod使用皮肤。' },
+    keywords: { name: 'keywords', content: 'Minecraft,我的世界,MC,麦块,皮肤站,mcskin,红石,红石皮肤站,skin,cape,server' },
+  }
+}
+
+useMeta(metaData)
 
 </script>

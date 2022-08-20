@@ -38,7 +38,7 @@
         <!--头像-->
         <q-btn round :ripple="false" unelevated class="q-mr-md">
             <q-avatar>
-                <img src="https://cdn.quasar.dev/img/avatar.png" />
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
             </q-avatar>
             <q-menu style="min-width: 200px">
                 <q-item>

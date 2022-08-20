@@ -1,6 +1,6 @@
 <template>
     <q-layout view="hHh lpR fff">
-        <q-header elevated class="text-grey-600" style="background: none;">
+        <q-header class="text-grey-600" style="background: none;">
             <SiteHeader @draw="drawer = !drawer"></SiteHeader>
         </q-header>
 
@@ -50,6 +50,11 @@ const menuList = ref([
     {
         icon: 'compare',
         label: '皮肤',
+        separator: false
+    },
+    {
+        icon: 'image',
+        label: '装扮',
         separator: false
     },
     {
