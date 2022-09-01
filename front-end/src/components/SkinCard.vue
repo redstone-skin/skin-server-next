@@ -32,10 +32,6 @@ const onMouseOut = () => {
 
 </script>
 <style lang="scss" scoped>
-.rs-skin-preview-card {
-    width: 100%;
-}
-
 .rs-skin-preview-card-img {
     cursor: pointer;
 }

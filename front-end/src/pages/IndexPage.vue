@@ -3,40 +3,56 @@
     <!--上面显示一排标签-->
     <div style="overflow-x: auto;">
       <div class="tags-container">
-        <div class="tag-item" :class="getTagColor(0)">#马赛克</div>
-        <div class="tag-item" :class="getTagColor(1)">#高清</div>
-        <div class="tag-item" :class="getTagColor(2)">#主播</div>
-        <div class="tag-item" :class="getTagColor(3)">#二次元</div>
-        <div class="tag-item" :class="getTagColor(4)">#妹子</div>
+        <div v-for="(item, index) in tags" :key="index" class="tag-item" :class="getTagColor(index)">#{{ item }}</div>
       </div>
     </div>
     <div class="container">
-      <q-tabs no-caps switch-indicator align="left" class="text-pimary" indicator-color="primary">
-        <q-tab name="skins" label="皮肤" />
-        <q-tab name="dress" label="装扮" />
-        <q-tab name="capes" label="披风" />
-        <q-tab name="servers" label="服务器" />
+      <q-tabs no-caps switch-indicator align="left" class="text-pimary" indicator-color="primary" :ripper="false">
+        <q-route-tab v-for="(item, index) in tabs" :key="index" :to="item.to" :label="item.label" exact />
       </q-tabs>
+
+      <router-view></router-view>
     </div>
   </q-page>
 </template>
 
-
-
-
 <script lang="ts" setup>
-import { ref } from 'vue'
-
-import LearnMoreCard from '../components/cards/LearnMoreCard.vue'
-import ActNormalCard from 'src/components/cards/ActNormalCard.vue'
-
 
 import { useMeta } from 'quasar'
+import { ref } from 'vue'
 
 useMeta({
   title: '首页'
 })
 
+const tags = ref<string[]>([
+  '二次元',
+  '原版',
+  '高清',
+  '二创',
+  '搬运',
+  '主播',
+  '恶搞',
+]);
+
+const tabs = ref([
+  {
+    label: '皮肤',
+    to: '/',
+  },
+  {
+    label: '装扮',
+    to: '/dress',
+  },
+  {
+    label: '披风',
+    to: '/cape',
+  },
+  {
+    label: '服务器',
+    to: '/server',
+  },
+])
 const getTagColor = (index: number) => {
   const colors = ['blue', 'green', 'yellow', 'pink', 'purple']
 
@@ -53,6 +69,8 @@ const getTagColor = (index: number) => {
   padding: 12px;
   margin-top: 16px;
   justify-content: center;
+
+  min-width: fit-content;
 
   .tag-item {
     padding: 8px 32px;
@@ -71,7 +89,7 @@ const getTagColor = (index: number) => {
     }
 
     &.tag-yellow {
-      background-color: #f1dc1d;
+      background-color: #938400;
     }
 
     &.tag-pink {

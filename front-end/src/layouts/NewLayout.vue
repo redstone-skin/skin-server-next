@@ -8,7 +8,7 @@
             <q-scroll-area class="fit">
                 <q-toolbar>
                     <q-btn flat round dense icon="menu" @click="drawer = !drawer" />
-                    <q-toolbar-title>红石皮肤站</q-toolbar-title>
+                    <q-toolbar-title>红石·皮肤站</q-toolbar-title>
                 </q-toolbar>
                 <q-list>
                     <template v-for="(menuItem, index) in menuList" :key="index">
@@ -32,6 +32,29 @@
             <router-view />
         </q-page-container>
 
+        <q-footer class="q-pt-md q-pb-md bg-black">
+            <div class="row items-center q-gutter-sm justify-center">
+                <a href="https://github.com/redstone-skin" target="_blank">
+                    Github
+                </a>
+                <a href="https://afdian.net/@hempflower" target="_blank">
+                    捐赠我们
+                </a>
+                <a href="https://www.mcbbs.net/thread-829044-1-1.html" target="_blank">
+                    MCBBS宣传贴
+                </a>
+                <a href="https://status.mcskin.cn/" target="_blank">
+                    状态监控
+                </a>
+            </div>
+            <div class="text-center">
+                这里是备案号
+            </div>
+            <div class="text-center">
+                © {{ new Date().getFullYear() }} 红石皮肤站
+            </div>
+        </q-footer>
+
         <div class="inside-watermark">
             <div style="font-size: 24px;">Redstone Skin Alpha</div>
             <div style="font-size: 16px;">红石皮肤站早期预览版</div>
@@ -41,7 +64,6 @@
 </template>
 
 <script setup lang="ts">
-import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 
