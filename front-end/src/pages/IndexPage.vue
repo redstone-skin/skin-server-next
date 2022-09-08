@@ -40,10 +40,12 @@ const tabs = ref([
     label: '皮肤',
     to: '/',
   },
+  /*
   {
     label: '装扮',
     to: '/dress',
   },
+  */
   {
     label: '披风',
     to: '/cape',

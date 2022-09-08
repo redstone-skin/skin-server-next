@@ -96,10 +96,13 @@ const emit = defineEmits(['draw'])
 
 </script>
 <style lang="scss" scoped>
+.rs-header-bg {
+    backdrop-filter: blur(24px);
+}
+
 .body--light {
     .rs-header-bg {
-        background: #fff;
-
+        background: rgba(255, 255, 255, 0.5);
         color: black;
     }
 
@@ -107,7 +110,7 @@ const emit = defineEmits(['draw'])
 
 .body--dark {
     .rs-header-bg {
-        background: $dark;
+        background: rgba(0, 0, 0, 0.5);
     }
 }
 </style>

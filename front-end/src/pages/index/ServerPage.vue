@@ -26,7 +26,14 @@
         <SkinGridList></SkinGridList>
         <!-- 热门 -->
         <GroupTitle>
-            皮肤合集
+            披风合集
+            <template v-slot:right>
+                <q-btn flat color="primary" label="换一换" />
+            </template>
+        </GroupTitle>
+        <SkinGridList></SkinGridList>
+        <GroupTitle>
+            高清披风
             <template v-slot:right>
                 <q-btn flat color="primary" label="换一换" />
             </template>
@@ -34,25 +41,17 @@
         <SkinGridList></SkinGridList>
 
         <GroupTitle>
-            高清皮肤
+            包含鞘翅
             <template v-slot:right>
                 <q-btn flat color="primary" label="换一换" />
             </template>
         </GroupTitle>
-        <SkinGridList></SkinGridList>
-
-        <GroupTitle>
-            双层皮肤
-            <template v-slot:right>
-                <q-btn flat color="primary" label="换一换" />
-            </template>
-        </GroupTitle>
-        <SkinGridList></SkinGridList>
+        <ServerGridList></ServerGridList>
 
         <!-- 底部搜索 -->
         <div class="rs-bottom-search">
             <div style="min-width: 30vw">
-                <div class="text-h4 text-center q-mb-sm">更多皮肤?在这里搜索</div>
+                <div class="text-h4 text-center q-mb-sm">更多服务器?在这里搜索</div>
                 <!-- 搜索框 -->
                 <SearchBox></SearchBox>
             </div>
@@ -61,7 +60,7 @@
 </template>
 <script lang="ts" setup>
 import GroupTitle from 'src/components/GroupTitle.vue';
-import SkinGridList from 'src/components/SkinGridList.vue';
+import ServerGridList from 'src/components/ServerGridList.vue';
 import SearchBox from 'src/components/SearchBox.vue';
 
 </script>

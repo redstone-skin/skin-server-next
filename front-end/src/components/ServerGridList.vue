@@ -8,14 +8,14 @@
             </div>
         </template>
         <template v-else>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 q-pa-sm" v-for="i in 12" :key="'skin-' + i">
-                <SkinCard></SkinCard>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 q-pa-sm" v-for="i in 12" :key="'server-' + i">
+                <ServerCard></ServerCard>
             </div>
         </template>
     </div>
 </template>
 <script lang="ts" setup>
-import SkinCard from './SkinCard.vue';
+import ServerCard from './ServerCard.vue';
 
 const props = defineProps({
     loading: {

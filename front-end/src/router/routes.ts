@@ -19,7 +19,7 @@ const routes: RouteRecordRaw[] = [
         },
         {
           path: 'cape',
-          component: () => import('pages/index/SkinPage.vue')
+          component: () => import('pages/index/CapePage.vue')
         },
         {
           path: 'server',

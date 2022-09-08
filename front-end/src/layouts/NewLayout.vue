@@ -74,11 +74,13 @@ const menuList = ref([
         label: '皮肤',
         separator: false
     },
+    /*
     {
         icon: 'image',
         label: '装扮',
         separator: false
     },
+    */
     {
         icon: 'image',
         label: '披风',
