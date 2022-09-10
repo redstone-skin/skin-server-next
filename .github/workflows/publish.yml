@@ -8,7 +8,7 @@ on:
       - 'main'
       - 'develop'
 jobs:
-  publish-backend:
+  publish-application:
     runs-on: ubuntu-latest
     steps:
       -
