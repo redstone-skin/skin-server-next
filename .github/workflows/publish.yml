@@ -1,4 +1,4 @@
-name: publish
+name: Public Docker Image
 
 on:
   push:
@@ -22,6 +22,7 @@ jobs:
           images: mcskin/redstone-skin
           tags: |
             type=semver,pattern={{version}}
+            type=sha,enable=true,priority=100,prefix=commit-,format=short
             type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'develop') }}
             type=raw,value=stable,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
       -
