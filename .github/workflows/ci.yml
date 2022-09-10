@@ -10,9 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Frontend image
-      run: docker build ./front-end --tag mcskin/mcskin-frontend:$(date +%s)
-    - name: Build the Backend image
-      run: docker build ./back-end --tag mcskin/mcskin-backend:$(date +%s)
-    - name: Build the Gateway image
-      run: docker build ./gateway --tag mcskin/mcskin-gateway:$(date +%s)
+    - name: Build the Docker image
+      run: docker build . --tag mcskin/redstone-skin:$(date +%s)
