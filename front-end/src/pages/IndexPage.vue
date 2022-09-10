@@ -1,14 +1,34 @@
 <template>
   <q-page>
     <!--上面显示一排标签-->
-    <div style="overflow-x: auto;">
+    <div style="overflow-x: auto">
       <div class="tags-container">
-        <div v-for="(item, index) in tags" :key="index" class="tag-item" :class="getTagColor(index)">#{{ item }}</div>
+        <div
+          v-for="(item, index) in tags"
+          :key="index"
+          class="tag-item"
+          :class="getTagColor(index)"
+        >
+          #{{ item }}
+        </div>
       </div>
     </div>
     <div class="container">
-      <q-tabs no-caps switch-indicator align="left" class="text-pimary" indicator-color="primary" :ripper="false">
-        <q-route-tab v-for="(item, index) in tabs" :key="index" :to="item.to" :label="item.label" exact />
+      <q-tabs
+        no-caps
+        switch-indicator
+        align="left"
+        class="text-pimary"
+        indicator-color="primary"
+        :ripper="false"
+      >
+        <q-route-tab
+          v-for="(item, index) in tabs"
+          :key="index"
+          :to="item.to"
+          :label="item.label"
+          exact
+        />
       </q-tabs>
 
       <router-view></router-view>
@@ -17,13 +37,12 @@
 </template>
 
 <script lang="ts" setup>
-
-import { useMeta } from 'quasar'
-import { ref } from 'vue'
+import { useMeta } from 'quasar';
+import { ref } from 'vue';
 
 useMeta({
-  title: '首页'
-})
+  title: '首页',
+});
 
 const tags = ref<string[]>([
   '二次元',
@@ -54,15 +73,12 @@ const tabs = ref([
     label: '服务器',
     to: '/server',
   },
-])
+]);
 const getTagColor = (index: number) => {
-  const colors = ['blue', 'green', 'yellow', 'pink', 'purple']
+  const colors = ['blue', 'green', 'yellow', 'pink', 'purple'];
 
-  return 'tag-' + colors[index % (colors.length - 1)]
-}
-
-
-
+  return 'tag-' + colors[index % (colors.length - 1)];
+};
 </script>
 <style lang="scss" scoped>
 .tags-container {
@@ -102,6 +118,5 @@ const getTagColor = (index: number) => {
       background-color: #c050f3;
     }
   }
-
 }
 </style>

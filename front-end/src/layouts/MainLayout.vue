@@ -3,9 +3,7 @@
     <q-header bordered class="navbar-bg">
       <q-toolbar>
         <q-btn flat round dense icon="menu" class="lt-sm" />
-        <q-toolbar-title shrink>
-          红石皮肤站
-        </q-toolbar-title>
+        <q-toolbar-title shrink> 红石皮肤站 </q-toolbar-title>
         <q-tabs class="gt-xs">
           <q-tab name="tab1" label="首页" />
           <q-tab name="tab2" label="皮肤" />
@@ -23,7 +21,13 @@
         <q-btn flat round icon="mail_outline" :ripple="false">
           <q-badge color="primary" floating>4</q-badge>
         </q-btn>
-        <q-btn flat round :icon="$q.dark.isActive ? 'dark_mode' : 'light_mode'" :ripple="false" @click="toggleTheme" />
+        <q-btn
+          flat
+          round
+          :icon="$q.dark.isActive ? 'dark_mode' : 'light_mode'"
+          :ripple="false"
+          @click="toggleTheme"
+        />
         <q-btn flat round icon="file_upload" :ripple="false" />
       </q-toolbar>
     </q-header>
@@ -35,7 +39,8 @@
     <q-footer class="bg-black text-white footer">
       <div class="nav-controller">
         <div>
-          红石皮肤站(Redstone Skin)为Minecraft玩家提供免费的皮肤站服务。<br> 你可以使用皮肤站上传你的皮肤，或者下载其他玩家的皮肤。
+          红石皮肤站(Redstone Skin)为Minecraft玩家提供免费的皮肤站服务。<br />
+          你可以使用皮肤站上传你的皮肤，或者下载其他玩家的皮肤。
         </div>
       </div>
       <!--Copyright and icp-->
@@ -49,8 +54,8 @@
     </q-footer>
 
     <div class="inside-watermark">
-      <div style="font-size: 24px;">Redstone Skin Alpha</div>
-      <div style="font-size: 16px;">红石皮肤站早期预览版</div>
+      <div style="font-size: 24px">Redstone Skin Alpha</div>
+      <div style="font-size: 16px">红石皮肤站早期预览版</div>
     </div>
 
     <q-ajax-bar position="top" color="primary" size="10px" skip-hijack />
@@ -58,13 +63,12 @@
 </template>
 
 <script setup lang="ts">
-import { useQuasar } from 'quasar'
-const $q = useQuasar()
+import { useQuasar } from 'quasar';
+const $q = useQuasar();
 
 const toggleTheme = () => {
   $q.dark.toggle();
-}
-
+};
 </script>
 <style scoped lang="scss">
 .site-name:hover {

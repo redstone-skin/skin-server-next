@@ -6,7 +6,7 @@ export const useHomeStore = defineStore('homeStore', {
   }),
   actions: {
     setSplash(content: string) {
-      this.splash = content
+      this.splash = content;
     },
   },
 });

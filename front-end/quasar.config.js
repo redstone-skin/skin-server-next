@@ -116,7 +116,7 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Cookies','Dialog','Meta'],
+      plugins: ['Cookies', 'Dialog', 'Meta'],
     },
 
     // animations: 'all', // --- includes all animations
@@ -152,6 +152,7 @@ module.exports = configure(function (/* ctx */) {
       // (gets superseded if process.env.PORT is specified at runtime)
 
       middlewares: [
+        'api-proxy',
         'render', // keep this as last one
       ],
     },
