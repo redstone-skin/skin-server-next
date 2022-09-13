@@ -1,5 +1,9 @@
 <template>
   <router-view />
+  <div class="inside-watermark">
+    <div style="font-size: 24px">Redstone Skin Alpha</div>
+    <div style="font-size: 16px">红石皮肤站早期预览版</div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -57,3 +61,15 @@ const metaData = {
 
 useMeta(metaData);
 </script>
+<style lang="scss" scoped>
+.inside-watermark {
+  position: fixed;
+  bottom: 64px;
+  right: 64px;
+  opacity: 0.8;
+  z-index: 9999;
+  padding: 8px;
+  color: rgb(139, 139, 139);
+  pointer-events: none;
+}
+</style>

@@ -43,10 +43,6 @@
       <div class="text-center">© {{ new Date().getFullYear() }} 红石皮肤站</div>
     </q-footer>
 
-    <div class="inside-watermark">
-      <div style="font-size: 24px">Redstone Skin Alpha</div>
-      <div style="font-size: 16px">红石皮肤站早期预览版</div>
-    </div>
     <q-ajax-bar position="top" color="primary" size="10px" skip-hijack />
   </q-layout>
 </template>
@@ -98,17 +94,6 @@ const menuList = ref([
 ]);
 </script>
 <style scoped lang="scss">
-.inside-watermark {
-  position: fixed;
-  bottom: 64px;
-  right: 64px;
-  opacity: 0.8;
-  z-index: 9999;
-  padding: 8px;
-  color: rgb(139, 139, 139);
-  pointer-events: none;
-}
-
 .rs-site-bg-img {
   background-position: center;
   background-repeat: no-repeat;
