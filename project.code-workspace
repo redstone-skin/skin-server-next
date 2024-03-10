@@ -1,0 +1,37 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": "."
+    },
+    {
+      "name": "server",
+      "path": "back-end"
+    },
+    {
+      "name": "web",
+      "path": "front-end"
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "formulahendry.auto-close-tag",
+      "formulahendry.auto-rename-tag",
+      "vue.volar",
+      "ms-dotnettools.csdevkit",
+      "bradlc.vscode-tailwindcss",
+      "bourhaouta.tailwindshades",
+      "dbaeumer.vscode-eslint",
+      "lokalise.i18n-ally",
+      "rvest.vs-code-prettier-eslint"
+    ]
+  },
+  "settings": {
+    "i18n-ally.localesPaths": ["./langs"],
+    "i18n-ally.enabledParsers": ["json"],
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "i18n-ally.keystyle": "nested"
+  }
+}

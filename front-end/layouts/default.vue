@@ -1,0 +1,4 @@
+<template>
+  <RSAppBar />
+  <NuxtPage />
+</template>
