@@ -1,17 +1,23 @@
 <script setup lang="ts">
-const route = useRoute();
+import defaultLauncherBackground from "@/assets/images/launcher-background.jpg";
+
+const background = ref(defaultLauncherBackground);
+
 useHead({
   title: "红石 MC 首页",
 });
 </script>
 
 <template>
-  <div class="pt-16">
-    <h1>Nuxt Routing set up successfully!</h1>
-    <p>Current route: {{ route.path }}</p>
-    <a
-      href="https://nuxt.com/docs/getting-started/routing"
-      target="_blank"
-    >Learn more about Nuxt Routing</a>
+  <div
+    class="transition-all duration-300 ease-in-out h-full w-full relative bg-cover bg-fixed bg-center"
+    :style="{
+      backgroundImage: `url(${background})`,
+    }"
+  >
+    <!--Launcher-->
+    <div class="absolute bottom-4 left-1/2">
+      111
+    </div>
   </div>
 </template>

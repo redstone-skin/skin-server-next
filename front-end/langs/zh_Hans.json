@@ -9,5 +9,12 @@
     "title": "红石 MC",
     "skins": "皮肤站",
     "servers": "联机"
+  },
+  "sidebar": {
+    "home": "首页",
+    "skins": "皮肤",
+    "servers": "联机",
+    "library": "游戏",
+    "settings": "设置"
   }
 }

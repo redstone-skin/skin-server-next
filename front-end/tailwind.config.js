@@ -37,6 +37,10 @@ export default {
         "surface-800": "rgb(var(--surface-800))",
         "surface-900": "rgb(var(--surface-900))",
         "surface-950": "rgb(var(--surface-950))",
+        "bar-light": "rgb(250 250 250)",
+        "bar-dark": "rgb(0 0 0)",
+        "page-light": "rgb(239 239 239)",
+        "page-dark": "rgb(60 60 60)",
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",

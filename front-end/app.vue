@@ -8,7 +8,7 @@
 const { t } = useI18n();
 
 useHead({
-  title: "hello",
+  title: t("meta.title"),
   titleTemplate: t("meta.titleTemplate"),
   meta: [
     { charset: "utf-8" },

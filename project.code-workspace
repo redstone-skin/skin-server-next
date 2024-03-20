@@ -32,6 +32,7 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "files.autoSave":"off",
     "i18n-ally.keystyle": "nested"
   }
 }
