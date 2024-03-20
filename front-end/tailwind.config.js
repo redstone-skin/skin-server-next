@@ -42,6 +42,9 @@ export default {
         "page-light": "rgb(239 239 239)",
         "page-dark": "rgb(60 60 60)",
       },
+      backgroundImage: {
+        growing: "linear-gradient(135deg, #00dc82, #36e4da, #0047e1)",
+      },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
         DEFAULT: "0 2px 4px var(--tw-shadow-color)",

@@ -6,13 +6,13 @@ const background = ref(defaultLauncherBackground);
 
 <template>
   <div
-    class="relative bg-cover bg-center"
+    class="bg-cover bg-center h-screen"
     :style="{
       backgroundImage: `url(${background})`,
     }"
   >
     <div
-      class="flex h-screen flex-col bg-bar-light dark:bg-bar-dark bg-opacity-50 dark:bg-opacity-50 backdrop-blur-2xl transition-colors duration-100"
+      class="flex h-screen z-20 flex-col bg-bar-light dark:bg-bar-dark bg-opacity-50 dark:bg-opacity-50 transition-colors duration-200 ease-in-out"
     >
       <RSAppBar />
       <div class="flex flex-1">

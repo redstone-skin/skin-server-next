@@ -1,5 +1,5 @@
 <template>
-  <div class="h-14">
+  <div class="h-14 backdrop-blur-2xl">
     <div class="flex justify-between items-center h-full px-4">
       <div>
         <NuxtLink

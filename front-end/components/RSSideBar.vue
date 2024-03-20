@@ -32,7 +32,7 @@ const menuList = ref<
 </script>
 
 <template>
-  <div class="h-full w-20 flex flex-col items-center">
+  <div class="h-full w-20 flex flex-col items-center backdrop-blur-2xl">
     <div class="flex-1 flex flex-col items-center gap-2 mt-4">
       <RSSideBarItem
         v-for="item in menuList"
