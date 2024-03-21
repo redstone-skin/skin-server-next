@@ -1,8 +1,7 @@
 {
-    "githubPullRequests.ignoredPullRequestBranches": [
-        "develop"
-    ],
-    "i18n-ally.localesPaths": [
-        "langs"
-    ]
+  "githubPullRequests.ignoredPullRequestBranches": ["develop"],
+  "i18n-ally.localesPaths": ["langs"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  }
 }

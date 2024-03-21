@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "nuxt-primevue",
     "@nuxtjs/color-mode",
+    "@nuxtjs/eslint-module",
   ],
   runtimeConfig: {
     public: {
@@ -45,5 +46,8 @@ export default defineNuxtConfig({
       name: "page",
       mode: "out-in",
     },
+  },
+  devServer: {
+    host: "127.0.0.1",
   },
 });

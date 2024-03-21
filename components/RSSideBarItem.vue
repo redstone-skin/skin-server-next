@@ -11,15 +11,14 @@ const props = defineProps<{
   <NuxtLink
     v-tooltip="props.label"
     :to="props.to"
-    class="rounded-lg overflow-hidden block cursor-pointer"
-    active-class="bg-primary-500 bg-opacity-60 dark:bg-opacity-60 shadow-md text-white"
+    class="block cursor-pointer overflow-hidden rounded-lg"
+    active-class="bg-primary-500 dark:bg-primary-500 shadow-md text-white"
     :class="{
-      'bg-primary-500 bg-opacity-60 dark:bg-opacity-60 shadow-md text-white':
-        props.active,
+      'bg-primary-500 text-white shadow-md': props.active,
     }"
   >
     <div
-      class="w-12 h-12 hover:bg-primary-500 bg-opacity-60 dark:hover:bg-primary-500 dark:bg-opacity-60 hover:text-white flex justify-center items-center transition-colors duration-200"
+      class="flex size-12 items-center justify-center transition-colors duration-200 hover:bg-primary-500/80 hover:text-white dark:hover:bg-primary-500/80"
     >
       <i :class="props.icon"></i>
     </div>

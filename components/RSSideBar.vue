@@ -32,8 +32,8 @@ const menuList = ref<
 </script>
 
 <template>
-  <div class="h-full w-20 flex flex-col items-center backdrop-blur-2xl">
-    <div class="flex-1 flex flex-col items-center gap-2 mt-4">
+  <div class="flex h-full w-20 flex-col items-center">
+    <div class="mt-4 flex flex-1 flex-col items-center gap-2">
       <RSSideBarItem
         v-for="item in menuList"
         :key="item.label"
@@ -43,23 +43,10 @@ const menuList = ref<
       />
     </div>
     <div class="mb-4 flex flex-col items-center gap-2">
-      <RSSideBarItem
-        icon="pi pi-plus"
-        label="安装游戏"
-        active
-      />
-      <RSSideBarItem
-        icon="pi pi-cog"
-        label="设置"
-        to="/settings"
-      />
+      <RSSideBarItem icon="pi pi-plus" label="安装游戏" active />
+      <RSSideBarItem icon="pi pi-cog" label="设置" to="/settings" />
       <!-- Avatar -->
-      <Avatar
-        class="cursor-pointer"
-        size="large"
-        shape="circle"
-        label="P"
-      />
+      <Avatar class="cursor-pointer" size="large" shape="circle" label="P" />
     </div>
   </div>
 </template>

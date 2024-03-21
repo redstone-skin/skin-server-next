@@ -38,9 +38,10 @@ body {
 
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.075s;
+  transition: all 0.100s;
 }
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
+  filter: blur(1rem);
 }

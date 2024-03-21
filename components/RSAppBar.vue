@@ -1,25 +1,21 @@
 <template>
-  <div class="h-14 backdrop-blur-2xl">
-    <div class="flex justify-between items-center h-full px-4">
+  <div class="h-14">
+    <div class="flex h-full items-center justify-between px-4">
       <div>
-        <NuxtLink
-          to="/"
-          class="font-bold text-xl text-black dark:text-white"
-        >
+        <NuxtLink to="/" class="text-xl font-bold text-black dark:text-white">
           {{ $t("navbar.title") }}
         </NuxtLink>
       </div>
       <div class="flex-1"></div>
       <div class="flex gap-2">
         <ClientOnly>
-          <Button
-            :icon="'pi' + (theme === 'light' ? ' pi-moon' : ' pi-sun')"
-            severity="secondary"
-            text
-            rounded
-            size="small"
+          <div
+            class="flex cursor-pointer items-center justify-center rounded-lg p-3 hover:bg-black/10 dark:hover:bg-white/20"
             @click="toggleTheme"
-          />
+          >
+            <!-- eslint-disable-next-line tailwindcss/no-custom-classname-->
+            <i class="pi pi-moon text-sm"></i>
+          </div>
         </ClientOnly>
       </div>
     </div>
