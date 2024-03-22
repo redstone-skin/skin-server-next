@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     "nuxt-primevue",
     "@nuxtjs/color-mode",
     "@nuxtjs/eslint-module",
+    "@pinia/nuxt",
   ],
   runtimeConfig: {
     public: {

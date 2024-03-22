@@ -16,5 +16,10 @@
     "servers": "联机",
     "library": "游戏",
     "settings": "设置"
+  },
+  "launcher": {
+    "profile": {
+      "refresh": "刷新角色"
+    }
   }
 }

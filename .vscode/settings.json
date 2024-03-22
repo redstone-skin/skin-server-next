@@ -3,5 +3,6 @@
   "i18n-ally.localesPaths": ["langs"],
   "editor.codeActionsOnSave": {
     "source.fixAll": "always"
-  }
+  },
+  "i18n-ally.keystyle": "nested"
 }
